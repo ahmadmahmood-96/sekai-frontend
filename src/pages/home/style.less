@@ -1,0 +1,44 @@
+.ant-layout-sider {
+    line-height: 120px;
+    background-color: #fff;
+    padding: 2px;
+    // height: "calc(100vh - 110px)", // Remove fixed height
+    height: inherit; // Set the height to 100% to fill the container
+    box-shadow: 0 1px 2px #00000008, 0 1px 6px -1px #00000005, 0 2px 4px #00000005;
+}
+
+.ant-layout .ant-layout-sider .ant-layout-sider-children .ant-menu {
+    width: 100%;
+    background-color: #fff;
+}
+
+.main {
+    min-height: 100vh;
+    background:  #C9C9C9;
+    .layout-main {
+        .side-bar {
+            background-color: #fff; 
+        }
+    } 
+}
+
+@media (max-width: 786px) {
+    .ant-layout-sider {
+        position: fixed;
+        z-index: 999;
+        min-height: 100vh;
+    }
+    .ant-layout-sider .ant-layout-sider-collapsed {
+        left: -80px;
+        display: none;
+    }
+    .ant-layout .ant-layout-sider .ant-layout-sider-children .ant-menu {
+        overflow-y: auto;
+        overflow-x: hidden;
+        max-height: calc(78vh - 95px);
+    }
+    .main > .layout-main .side-bar .sidebar-menu {
+        overflow-y: auto;
+        max-height: calc(100vh - 55px);
+    } 
+}

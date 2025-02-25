@@ -1,0 +1,104 @@
+
+.signup-left-box,
+.signup-right-box{
+    min-height: 100vh;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.signup-right-box{
+    background-color: var(--primary-color); 
+    h1 {
+        color: var(--text-color);
+        font-weight: 100;
+    }
+}
+.signup-left-box{
+    form {
+        padding: 30px 20px 10px 20px;
+        border-radius: 10px;
+        box-shadow: 0px 4px 22px 3px #00000014;
+        min-width: 450px;
+        max-width: 600px ;
+        h1 {
+            margin-bottom: 0;
+            font-size: 24px;
+        }
+        .sub-title {
+            margin-bottom: 25px;
+            display: block;
+            font-size: 16px;
+            color: #585858;
+            font-weight: 500;
+        }
+        .signup-options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .forgot-password {
+            font-size: 14px;
+            font-weight: 400;
+            cursor: pointer;
+            color: var(--primary-color); 
+            text-align: right;
+            margin-left: auto; /* Ensures it aligns to the right */
+            &:hover {
+                color: var(--hover-color);
+            }
+        }
+        
+        .signup {
+            color: var(--primary-color); 
+            font-weight: 500;
+            font-size: 16px;
+            &:hover {
+                color: var(--hover-color);
+            }
+        }
+        
+    }
+}
+.signup-left-box .ant-form-item-label > label.ant-form-item-required::before {
+    display: none !important;
+}
+.signup-left-box .ant-form-item-label > label.ant-form-item-required::after {
+    display:none !important;
+}
+.right-align {
+    text-align: right;
+    button {
+        margin-top: -4px;
+    }
+}
+.text-right {
+    text-align: right;
+    .ant-input-number {
+        margin-right: 0px !important;
+        min-width: 120px;
+    }
+}
+@media (max-width: 1024px) {
+    .signup-left-box{
+        padding-top:20px;
+        padding-bottom: 20px;
+        form{
+            min-width: 330px;
+        }
+    }
+  }
+  @media (max-width: 768px) {
+    .signup-left-box{
+        padding-top:20px;
+        padding-bottom: 30px;
+        form{
+            min-width: initial;
+        }
+    }
+    .signup-right-box{
+        display: none;
+    }
+  }
+  

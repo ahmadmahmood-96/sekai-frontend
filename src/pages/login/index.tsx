@@ -71,9 +71,9 @@ const Login = () => {
       >
         <Col xs={24} sm={24} md={12} lg={12} xl={12} className="login-left-box">
           <img
-            className="aethos-logo-image"
-            src="/aethos-logo.png"
-            alt="Aethos logo"
+            className="sekai-logo-image"
+            src="/sekai-logo.png"
+            alt="Sekai logo"
           />
         </Col>
         <Col

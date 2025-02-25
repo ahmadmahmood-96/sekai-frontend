@@ -7,15 +7,15 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  --primary-color: #d8b65e; /* Black */
-  --secondary-color: #d4d4d4; /* Light Gray */
+  --primary-color: #2c3e50; /* Dark Blue */
+  --secondary-color: #34495e; /* Light Gray */
   --black-color: #000000; /* Black */
   --accent-color: #939393; /* Medium Gray */
   --navy-color: #1a1a1a; /* Dark Gray/Almost Black */
-  --background-color: #212121; /* Very Dark Gray */
+  --background-color: #f4f6f7; /* Very Dark Gray */
   --text-color: #ffffff; /* White */
   --red-color: #ff4d4f; /* Keeping the red as is */
-  --hover-color: #c5a146;
+  --hover-color: #34495e;
 }
 
 /* Global scrollbar styles */

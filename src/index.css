@@ -7,7 +7,7 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  --primary-color: #2c3e50; /* Dark Blue */
+  --primary-color: #34506e; /* Dark Blue */
   --secondary-color: #34495e; /* Light Gray */
   --black-color: #000000; /* Black */
   --accent-color: #939393; /* Medium Gray */
@@ -15,7 +15,7 @@
   --background-color: #f4f6f7; /* Very Dark Gray */
   --text-color: #ffffff; /* White */
   --red-color: #ff4d4f; /* Keeping the red as is */
-  --hover-color: #34495e;
+  --hover-color: #2c445d;
 }
 
 /* Global scrollbar styles */
@@ -76,12 +76,11 @@ h1 {
 .ant-input:focus,
 .ant-input-password:focus-within {
   border-color: var(--primary-color);
-  box-shadow: 0 0 2px rgba(216, 182, 94, 0.7);
+  box-shadow: 0 0 2px rgba(44, 62, 80, 0.7);
 }
 
 .ant-btn-primary {
   background-color: var(--primary-color);
-  /* color: var(--black-color); */
   &:hover {
     background-color: var(--hover-color) !important;
   }
@@ -302,9 +301,8 @@ th {
 }
 
 .header-logo {
-  filter: invert(100%);
   margin-left: 8px;
-  width: 190px;
+  width: 120px;
 }
 
 @media (max-width: 786px) {

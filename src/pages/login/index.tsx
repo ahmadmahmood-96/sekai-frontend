@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Button, Form, Input, Row, Col, message } from "antd";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useMutation } from "react-query";
 import "./style.less";
 import client from "../../utils/axios";
@@ -91,7 +91,7 @@ const Login = () => {
             onFinish={onFinish}
           >
             <Col span={24}>
-              <h1>Log into your Aethos Account</h1>
+              <h1>Log into your Sekai Account</h1>
               <span className="sub-title">
                 Sign in by entering correct credentials
               </span>
@@ -144,11 +144,6 @@ const Login = () => {
                   Sign in
                 </Button>
               </Form.Item>
-            </Col>
-            <Col span={24} style={{ textAlign: "center" }}>
-              <Link to="/signup" className="signup">
-                Do not have an account? Signup now
-              </Link>
             </Col>
           </Form>
         </Col>

@@ -48,7 +48,7 @@ const Home = () => {
     <>
       <Layout style={layoutStyle} className="main">
         <HeaderComponent collapsed={collapsed} handleToggle={handleToggle} />
-        <Layout className="layout-main" style={{ backgroundColor: "#e9e9e9" }}>
+        <Layout className="layout-main" style={{ backgroundColor: "#f4f6f7" }}>
           <Sider
             ref={sidebarRef}
             width="230px"

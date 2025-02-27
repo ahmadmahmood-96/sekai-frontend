@@ -82,7 +82,7 @@ const HeaderComponent: React.FC<HeaderComponentProps> = ({
               onClick={handleToggle}
             />
           )}
-          <img className="header-logo" src="/aethos-logo.png" alt="Aethos Logo" />
+          <img className="header-logo" src="/sekai-text.png" alt="Sekai Logo" />
         </div>
         <div
           style={{
@@ -134,7 +134,7 @@ const HeaderComponent: React.FC<HeaderComponentProps> = ({
 const headerStyle: React.CSSProperties = {
   color: "#333", // Slightly darker text for contrast
   height: 65,
-  backgroundColor: "rgba(252, 252, 252, 0.9)", // Light gray with slight transparency
+  backgroundColor: "rgb(255, 255, 255)", // Light gray with slight transparency
   display: "flex",
   alignItems: "center",
   justifyContent: "space-between",

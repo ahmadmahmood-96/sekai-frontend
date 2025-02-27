@@ -6,7 +6,6 @@ import WarningMessage from "./components/ui/WarningMessage";
 import { NotificationModal } from "./components/ui/NotificationModal";
 import { Spin, message } from "antd";
 const Login = lazy(() => import("./pages/login"));
-const Signup = lazy(() => import("./pages/signup"));
 const ErrorPage = lazy(() => import("./pages/ErrorPage"));
 const PageNotFound = lazy(() => import("./pages/PageNotFound"));
 
@@ -40,7 +39,6 @@ const App = () => {
         <Suspense fallback={<Spin className="app-loading-wrapper" />}>
           <Routes>
             <Route path="/" element={<Login />} />
-            <Route path="/signup" element={<Signup />} />
             <Route path="/home/*" element={<Home />} />
             <Route path="/error-page" element={<ErrorPage />} />
             <Route path="/unauthorized" element={<ErrorPage />} />

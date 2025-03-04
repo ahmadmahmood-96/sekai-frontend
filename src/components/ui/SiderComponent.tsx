@@ -2,21 +2,12 @@ import { Menu } from "antd";
 import { useNavigate } from "react-router-dom";
 import {
   LogoutOutlined,
-  DollarOutlined,
-  BarChartOutlined,
   AreaChartOutlined,
-  ImportOutlined,
   LineChartOutlined,
-  SnippetsOutlined,
-  DiffOutlined,
   UserAddOutlined,
   HomeOutlined,
 } from "@ant-design/icons";
-import { FaPlus } from "react-icons/fa";
-import { VscEye } from "react-icons/vsc";
-import { IoInformationCircleOutline } from "react-icons/io5";
 import { LuUsers, LuUserSearch } from "react-icons/lu";
-import { LiaFileInvoiceDollarSolid } from "react-icons/lia";
 import type { MenuProps } from "antd";
 import { handleLogout } from "../../utils/logout";
 import { getUserFromLocalStorage } from "../../utils/getUser";
@@ -33,63 +24,6 @@ const SiderComponent: React.FC<SiderComponentProps> = ({ handleToggle }) => {
 
   const items: MenuProps["items"] = [
     { key: "/home", label: "Home", icon: <LineChartOutlined /> },
-    // {
-    //   key: "/home/total-revenue-volume",
-    //   label: "Total Revenue & Volume",
-    //   icon: <BarChartOutlined />,
-    // },
-    {
-      key: "/home/revenue-mid",
-      label: "Revenue per MID",
-      icon: <DollarOutlined />,
-    },
-    {
-      key: "/home/agents",
-      label: "Agents Data",
-      icon: <BarChartOutlined />,
-    },
-    {
-      key: "/home/industry",
-      label: "Industry",
-      icon: <AreaChartOutlined />,
-    },
-    {
-      key: "/home/insights",
-      label: "Insights",
-      icon: <DollarOutlined />,
-    },
-    {
-      key: "/home/merchants",
-      label: "MIDs",
-      icon: <DiffOutlined />,
-    },
-    {
-      key: "/home/import-data",
-      label: "Import Data",
-      icon: <ImportOutlined />,
-    },
-    {
-      key: "/home/adjustments",
-      label: "Adjustments",
-      icon: <LiaFileInvoiceDollarSolid />,
-      children: [
-        {
-          key: "/home/adjustments/new",
-          label: "Add Adjustments",
-          icon: <FaPlus />,
-        },
-        {
-          key: "/home/adjustments",
-          label: "View Adjustments",
-          icon: <VscEye />,
-        },
-      ],
-    },
-    {
-      key: "/home/logs",
-      label: "Logs",
-      icon: <SnippetsOutlined />,
-    },
     {
       key: "/home/users",
       label: "Users",
@@ -104,23 +38,6 @@ const SiderComponent: React.FC<SiderComponentProps> = ({ handleToggle }) => {
           key: "/home/users",
           label: "View Users",
           icon: <LuUserSearch />,
-        },
-      ],
-    },
-    {
-      key: "/home/iso",
-      label: "ISO",
-      icon: <IoInformationCircleOutline />,
-      children: [
-        {
-          key: "/home/iso/new",
-          label: "Add ISO",
-          icon: <FaPlus />,
-        },
-        {
-          key: "/home/iso",
-          label: "View ISO",
-          icon: <VscEye />,
         },
       ],
     },
@@ -167,15 +84,6 @@ const SiderComponent: React.FC<SiderComponentProps> = ({ handleToggle }) => {
     // For all dynamic paths under
     if (path.startsWith("/home/users") && path !== "/home/users") {
       return "/home/users/new";
-    } else if (path.startsWith("/home/iso") && path !== "/home/iso") {
-      return "/home/iso/new";
-    } else if (
-      path.startsWith("/home/adjustments") &&
-      path !== "/home/adjustments"
-    ) {
-      return "/home/adjustments/new";
-    } else if (path.startsWith("/home/merchants")) {
-      return "/home/merchants";
     }
 
     return undefined; // No match

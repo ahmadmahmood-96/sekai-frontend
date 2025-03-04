@@ -6,6 +6,7 @@ import ErrorPage from "../pages/ErrorPage";
 import { Suspense } from "react";
 import { Spin } from "antd";
 import { getUserFromLocalStorage } from "../utils/getUser";
+import AddUsers from "../pages/users/AddUsers";
 
 const HomeRoutes = () => {
   const user = getUserFromLocalStorage();
@@ -36,6 +37,16 @@ const HomeRoutes = () => {
             }
           />
         )}
+        <Route
+          path="/users/:id"
+          element={
+            <Suspense fallback={<Spin className="app-loading-wrapper" />}>
+              <ProtectedRoute allowedRoles={["admin"]}>
+                <AddUsers />
+              </ProtectedRoute>
+            </Suspense>
+          }
+        />
         <Route path="/unauthorized" element={<ErrorPage />} />
         <Route path="/*" element={<PageNotFound />} />
       </Routes>

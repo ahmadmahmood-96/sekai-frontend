@@ -229,10 +229,6 @@ h1 {
   }
 }
 
-th {
-  text-align: center !important;
-}
-
 .ant-dropdown .ant-dropdown-menu {
   padding: 6px 5px;
   border-radius: 5px;

@@ -10,7 +10,7 @@ export default function PageNotFound() {
         subTitle="Sorry, the page you visited does not exist."
         extra={
           <Button type="primary">
-            <Link to="/">Go back to Home</Link>
+            <Link to="/home">Go back to Home</Link>
           </Button>
         }
       />

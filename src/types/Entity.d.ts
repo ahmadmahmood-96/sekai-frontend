@@ -27,3 +27,8 @@ interface SignupFormValues {
 interface APIReturnResponse {
   message: string;
 }
+
+interface Company {
+  _id: string;
+  name: string;
+}

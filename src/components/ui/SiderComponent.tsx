@@ -7,6 +7,7 @@ import {
   UserAddOutlined,
   HomeOutlined,
 } from "@ant-design/icons";
+import { BsBuildings } from "react-icons/bs";
 import { LuUsers, LuUserSearch } from "react-icons/lu";
 import type { MenuProps } from "antd";
 import { handleLogout } from "../../utils/logout";
@@ -24,6 +25,7 @@ const SiderComponent: React.FC<SiderComponentProps> = ({ handleToggle }) => {
 
   const items: MenuProps["items"] = [
     { key: "/home", label: "Home", icon: <LineChartOutlined /> },
+    { key: "/home/companies", label: "Companies", icon: <BsBuildings /> },
     {
       key: "/home/users",
       label: "Users",

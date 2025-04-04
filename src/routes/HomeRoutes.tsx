@@ -7,6 +7,7 @@ import { Suspense } from "react";
 import { Spin } from "antd";
 import { getUserFromLocalStorage } from "../utils/getUser";
 import AddUsers from "../pages/users/AddUsers";
+import CompaniesList from "../pages/companies";
 
 const HomeRoutes = () => {
   const user = getUserFromLocalStorage();
@@ -43,6 +44,16 @@ const HomeRoutes = () => {
             <Suspense fallback={<Spin className="app-loading-wrapper" />}>
               <ProtectedRoute allowedRoles={["admin"]}>
                 <AddUsers />
+              </ProtectedRoute>
+            </Suspense>
+          }
+        />
+        <Route
+          path="/companies"
+          element={
+            <Suspense fallback={<Spin className="app-loading-wrapper" />}>
+              <ProtectedRoute allowedRoles={["admin"]}>
+                <CompaniesList />
               </ProtectedRoute>
             </Suspense>
           }

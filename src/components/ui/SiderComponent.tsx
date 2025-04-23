@@ -9,6 +9,8 @@ import {
 } from "@ant-design/icons";
 import { BsBuildings } from "react-icons/bs";
 import { LuUsers, LuUserSearch } from "react-icons/lu";
+import { IoCarSportOutline, IoAdd } from "react-icons/io5";
+import { PiListMagnifyingGlassThin } from "react-icons/pi";
 import type { MenuProps } from "antd";
 import { handleLogout } from "../../utils/logout";
 import { getUserFromLocalStorage } from "../../utils/getUser";
@@ -40,6 +42,23 @@ const SiderComponent: React.FC<SiderComponentProps> = ({ handleToggle }) => {
           key: "/home/users",
           label: "View Users",
           icon: <LuUserSearch />,
+        },
+      ],
+    },
+    {
+      key: "/home/cars",
+      label: "Cars",
+      icon: <IoCarSportOutline size={16} />,
+      children: [
+        {
+          key: "/home/cars/new",
+          label: "Add Car",
+          icon: <IoAdd />,
+        },
+        {
+          key: "/home/users",
+          label: "View Cars",
+          icon: <PiListMagnifyingGlassThin />,
         },
       ],
     },
@@ -86,6 +105,8 @@ const SiderComponent: React.FC<SiderComponentProps> = ({ handleToggle }) => {
     // For all dynamic paths under
     if (path.startsWith("/home/users") && path !== "/home/users") {
       return "/home/users/new";
+    } else if (path.startsWith("/home/cars") && path !== "/home/cars") {
+      return "/home/cars/new";
     }
 
     return undefined; // No match

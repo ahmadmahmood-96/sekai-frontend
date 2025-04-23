@@ -10,7 +10,8 @@ import {
 import { BsBuildings } from "react-icons/bs";
 import { LuUsers, LuUserSearch } from "react-icons/lu";
 import { IoCarSportOutline, IoAdd } from "react-icons/io5";
-import { PiListMagnifyingGlassThin } from "react-icons/pi";
+import { AiOutlineUserAdd, AiOutlineInsurance } from "react-icons/ai";
+import { PiListMagnifyingGlassThin, PiUserList } from "react-icons/pi";
 import type { MenuProps } from "antd";
 import { handleLogout } from "../../utils/logout";
 import { getUserFromLocalStorage } from "../../utils/getUser";
@@ -59,6 +60,33 @@ const SiderComponent: React.FC<SiderComponentProps> = ({ handleToggle }) => {
           key: "/home/users",
           label: "View Cars",
           icon: <PiListMagnifyingGlassThin />,
+        },
+      ],
+    },
+    {
+      key: "/home/insurance",
+      label: "Insurance",
+      icon: <AiOutlineInsurance size={16} />,
+      children: [
+        {
+          key: "/home/insurance-company/new",
+          label: "Add Company",
+          icon: <IoAdd />,
+        },
+        {
+          key: "/home/insurance-company",
+          label: "View Companies",
+          icon: <PiListMagnifyingGlassThin />,
+        },
+        {
+          key: "/home/insurance-agent/new",
+          label: "Add Agent",
+          icon: <AiOutlineUserAdd />,
+        },
+        {
+          key: "/home/insurance-agent",
+          label: "View Agents",
+          icon: <PiUserList />,
         },
       ],
     },

@@ -32,3 +32,9 @@ interface Company {
   _id: string;
   name: string;
 }
+
+interface InsuranceCompany {
+  _id: string;
+  name: string;
+  createdAt: string;
+}

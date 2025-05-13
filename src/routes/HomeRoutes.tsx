@@ -9,6 +9,7 @@ import { getUserFromLocalStorage } from "../utils/getUser";
 import AddUsers from "../pages/users/AddUsers";
 import CompaniesList from "../pages/companies";
 import CarDetails from "../pages/companies/sekaiCars";
+import InsuranceCompaniesList from "../pages/insurance/companies/companiesList";
 
 const HomeRoutes = () => {
   const user = getUserFromLocalStorage();
@@ -65,6 +66,16 @@ const HomeRoutes = () => {
             <Suspense fallback={<Spin className="app-loading-wrapper" />}>
               <ProtectedRoute allowedRoles={["admin"]}>
                 <CarDetails />
+              </ProtectedRoute>
+            </Suspense>
+          }
+        />
+        <Route
+          path="/insurance-company"
+          element={
+            <Suspense fallback={<Spin className="app-loading-wrapper" />}>
+              <ProtectedRoute allowedRoles={["admin"]}>
+                <InsuranceCompaniesList />
               </ProtectedRoute>
             </Suspense>
           }

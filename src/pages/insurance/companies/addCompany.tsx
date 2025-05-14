@@ -2,8 +2,9 @@ import { useEffect } from "react";
 import { useParams, useLocation, useNavigate } from "react-router-dom";
 import { Form, Input, Button, message, Row, Col } from "antd";
 import client from "../../../utils/axios";
-import { useMutation, useQuery } from "react-query";
-import LoadingSpinner from "../../../components/LoaderSpinner";
+import { useMutation, useQuery, useQueryClient } from "react-query";
+import LoadingSpinner from "../../../components/ui/LoaderSpinner";
+import DescriptionTitle from "../../../components/ui/DescriptionTitle";
 
 interface InsuranceCompany {
   id: string;
@@ -30,6 +31,7 @@ const submitCompany = async (values: InsuranceCompany) => {
 const AddInsuranceCompany = () => {
   const [form] = Form.useForm();
   const { id } = useParams();
+  const queryClient = useQueryClient();
   const location = useLocation();
   const isNew = location.pathname.endsWith("/new");
   const navigate = useNavigate();
@@ -58,7 +60,8 @@ const AddInsuranceCompany = () => {
             : "Insurance company updated successfully"
         );
         if (isNew) form.resetFields();
-        navigate("/insurance/company");
+        queryClient.invalidateQueries(["InsuranceCompanies"]);
+        navigate("/home/insurance-company");
       },
       onError: (error: any) => {
         if (error?.response?.data?.message)
@@ -77,9 +80,12 @@ const AddInsuranceCompany = () => {
 
   return (
     <div>
-      <h2>{isNew ? "Add Insurance Company" : "Edit Insurance Company"}</h2>
+      <DescriptionTitle
+        title={isNew ? "Add Insurance Company" : "Update Insurance Company"}
+        description="Add or update an insurance company"
+      />
       {companyLoading && !isNew ? (
-        <LoadingSpinner isLoading={companyLoading} />
+        <LoadingSpinner isLoading={companyLoading || submitLoading} />
       ) : (
         <Row align="middle">
           <Col span={24}>

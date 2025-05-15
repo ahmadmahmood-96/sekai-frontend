@@ -38,3 +38,11 @@ interface InsuranceCompany {
   name: string;
   createdAt: string;
 }
+
+interface InsuranceAgent {
+  id?: string;
+  name: string;
+  phoneNumber?: string;
+  email?: string;
+  insuranceCompanyId: string;
+}

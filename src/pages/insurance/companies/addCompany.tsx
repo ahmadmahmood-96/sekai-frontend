@@ -23,7 +23,7 @@ const submitCompany = async (values: InsuranceCompany) => {
   const endpoint = values.id
     ? `/icomp/company/${values.id}`
     : "/icomp/companies";
-  const method = values.id ? client.put : client.post;
+  const method = values.id ? client.patch : client.post;
   const { data } = await method(endpoint, values);
   return data;
 };

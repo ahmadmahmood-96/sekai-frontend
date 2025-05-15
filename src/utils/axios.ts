@@ -1,19 +1,31 @@
 import axios from "axios";
 
-// Create an Axios instance with a base URL
+const VITE_BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
+
 const client = axios.create({
-  baseURL: `http://localhost:3001/`, // Base URL for the API
+  baseURL: `${VITE_BACKEND_URL}`,
   headers: {
-    "Content-Type": "application/json", // Default content type
-    Authorization: `Bearer ${localStorage.getItem("token")}`,
+    "Content-Type": "application/json",
   },
 });
 
+// Dynamically attach token before each request
+client.interceptors.request.use(
+  (config) => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
+    return config;
+  },
+  (error) => Promise.reject(error)
+);
+
+// Optional: response interceptor
 client.interceptors.response.use(
   (response) => response,
   (error) => {
-    // Suppress console error logs for requests that fail
-    return Promise.reject(error); // Continue to propagate the error if needed
+    return Promise.reject(error);
   }
 );
 

@@ -140,6 +140,11 @@ const SiderComponent: React.FC<SiderComponentProps> = ({ handleToggle }) => {
       path !== "/home/insurance-company"
     ) {
       return "/home/insurance-company/new";
+    } else if (
+      path.startsWith("/home/insurance-agent") &&
+      path !== "/home/insurance-agent"
+    ) {
+      return "/home/insurance-agent/new";
     }
 
     return undefined; // No match

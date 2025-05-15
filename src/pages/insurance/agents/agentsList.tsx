@@ -7,14 +7,36 @@ import dayjs from "dayjs";
 import DescriptionTitle from "../../../components/ui/DescriptionTitle";
 import { useNavigate } from "react-router-dom";
 
-const InsuranceCompaniesList = () => {
+const AgentsList = () => {
   const navigate = useNavigate();
-  const columns: ColumnsType<InsuranceCompany> = [
+  const columns: ColumnsType<InsuranceAgent> = [
     {
       title: "Name",
       dataIndex: "name",
       key: "name",
       sorter: (a, b) => a.name.localeCompare(b.name),
+    },
+    {
+      title: "Email",
+      dataIndex: "email",
+      key: "email",
+      sorter: (a, b) => (a.email || "").localeCompare(b.email || ""),
+    },
+    {
+      title: "Phone Number",
+      dataIndex: "phoneNumber",
+      key: "phoneNumber",
+      sorter: (a, b) =>
+        (a.phoneNumber || "").localeCompare(b.phoneNumber || ""),
+    },
+    {
+      title: "Insurance Company",
+      dataIndex: ["insuranceCompanyId", "name"],
+      key: "insuranceCompanyId",
+      sorter: (a, b) =>
+        (a.insuranceCompanyId.name || "").localeCompare(
+          b.insuranceCompanyId.name || ""
+        ),
     },
     {
       title: "Created At",
@@ -30,7 +52,7 @@ const InsuranceCompaniesList = () => {
         <Space>
           <EditOutlined
             style={{ fontSize: 18 }}
-            onClick={() => navigate(`/home/insurance-company/${record._id}`)}
+            onClick={() => navigate(`/home/insurance-agent/${record._id}`)}
           />
           <DeleteOutlined
             style={{ fontSize: 18, color: "red", marginLeft: "5px" }}
@@ -40,11 +62,11 @@ const InsuranceCompaniesList = () => {
     },
   ];
 
-  const fetchAllCompanies = async (): Promise<InsuranceCompany[]> => {
+  const fetchAllAgents = async (): Promise<InsuranceAgent[]> => {
     const { data } = await client.get<{
       status: string;
-      result: InsuranceCompany[];
-    }>(`/icomp/all-companies`);
+      result: InsuranceAgent[];
+    }>(`/iagent/all-agents`);
     return data.result;
   };
 
@@ -52,16 +74,15 @@ const InsuranceCompaniesList = () => {
     data: insuranceCompanies,
     isLoading: insuranceCompaniesLoading,
     error: insuranceCompaniesError,
-  } = useQuery(["InsuranceCompanies"], fetchAllCompanies);
+  } = useQuery(["InsuranceAgents"], fetchAllAgents);
 
-  if (insuranceCompaniesError)
-    message.error("Error fetching insurance companies");
+  if (insuranceCompaniesError) message.error("Error fetching insurance agents");
 
   return (
     <>
       <DescriptionTitle
-        title="List of Insurance Companies"
-        description="View all insurance companies"
+        title="List of Insurance Agents"
+        description="View all insurance agents"
       />
       <Table
         rowKey="_id"
@@ -73,4 +94,4 @@ const InsuranceCompaniesList = () => {
   );
 };
 
-export default InsuranceCompaniesList;
+export default AgentsList;

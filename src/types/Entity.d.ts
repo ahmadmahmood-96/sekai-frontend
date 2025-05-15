@@ -40,9 +40,13 @@ interface InsuranceCompany {
 }
 
 interface InsuranceAgent {
-  id?: string;
+  _id: string;
   name: string;
   phoneNumber?: string;
   email?: string;
-  insuranceCompanyId: string;
+  insuranceCompanyId: {
+    _id: string;
+    name: string;
+  };
+  createdAt: string;
 }

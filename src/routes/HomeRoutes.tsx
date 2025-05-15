@@ -12,6 +12,7 @@ import CarDetails from "../pages/companies/sekaiCars";
 import InsuranceCompaniesList from "../pages/insurance/companies/companiesList";
 import AddInsuranceCompany from "../pages/insurance/companies/addCompany";
 import AddAgent from "../pages/insurance/agents/addAgent";
+import AgentsList from "../pages/insurance/agents/agentsList";
 
 const HomeRoutes = () => {
   const user = getUserFromLocalStorage();
@@ -88,6 +89,16 @@ const HomeRoutes = () => {
             <Suspense fallback={<Spin className="app-loading-wrapper" />}>
               <ProtectedRoute allowedRoles={["admin"]}>
                 <AddInsuranceCompany />
+              </ProtectedRoute>
+            </Suspense>
+          }
+        />
+        <Route
+          path="/insurance-agent"
+          element={
+            <Suspense fallback={<Spin className="app-loading-wrapper" />}>
+              <ProtectedRoute allowedRoles={["admin"]}>
+                <AgentsList />
               </ProtectedRoute>
             </Suspense>
           }

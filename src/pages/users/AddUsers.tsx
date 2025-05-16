@@ -1,8 +1,9 @@
 import { Form, Input, Button, Row, Col, Select, message } from "antd";
-import { useMutation, useQuery } from "react-query";
-import { useParams } from "react-router-dom";
+import { useMutation, useQuery, useQueryClient } from "react-query";
+import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import client from "../../utils/axios";
+import DescriptionTitle from "../../components/ui/DescriptionTitle";
 
 const { Option } = Select;
 
@@ -10,7 +11,7 @@ interface UsersFormValues {
   email: string;
   fullName: string;
   password: string;
-  phoneNumber: string;
+  phone_number: string;
   role: "admin" | "salesperson";
 }
 
@@ -23,6 +24,8 @@ const AddUsers = () => {
   const { id } = useParams<{ id: string }>();
   const [isEdit, setIsEdit] = useState<boolean>(false);
   const [form] = Form.useForm<UsersFormValues>();
+  const queryClient = useQueryClient();
+  const navigate = useNavigate();
 
   useEffect(() => {
     setIsEdit(id !== "new");
@@ -54,7 +57,7 @@ const AddUsers = () => {
       ...(isEdit ? { id } : {}), // Include id only when editing
     };
 
-    await client.post("/users", payload);
+    await client.post("/user/users", payload);
   };
 
   const { mutate: handleSubmit, isLoading } = useMutation(submitUser, {
@@ -64,6 +67,8 @@ const AddUsers = () => {
         message.success("User added successfully");
         form.resetFields();
       }
+      queryClient.invalidateQueries(["Users"]);
+      navigate("/home/users");
     },
     onError: (error: any) => {
       if (error?.response?.data?.message)
@@ -78,10 +83,10 @@ const AddUsers = () => {
 
   return (
     <>
-      <h2>{isEdit ? "Edit User" : "Add Users"}</h2>
-      <span className="subtitle">
-        Fill the form below to add or edit agents or admins in Sekai
-      </span>
+      <DescriptionTitle
+        title={isEdit ? "Edit User" : "Add Users"}
+        description="Fill the form below to add or edit agents or admins in Sekai"
+      />
       <Form form={form} layout="vertical" onFinish={onFinish}>
         <Row gutter={16}>
           <Col xs={24} lg={8}>
@@ -153,7 +158,7 @@ const AddUsers = () => {
           <Col xs={24} lg={8}>
             <Form.Item
               label="Phone Number"
-              name="phoneNumber"
+              name="phone_number"
               rules={[
                 {
                   required: true,

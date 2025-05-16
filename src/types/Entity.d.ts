@@ -4,10 +4,12 @@ interface LoginFormValues {
 }
 
 interface User {
-  id: number;
+  _id: number;
   name: string;
+  phone_number: string;
   email: string;
   role: string;
+  createdAt: string;
 }
 
 interface LoginReturnValues {

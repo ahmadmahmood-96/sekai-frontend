@@ -57,7 +57,7 @@ const SiderComponent: React.FC<SiderComponentProps> = ({ handleToggle }) => {
           icon: <IoAdd />,
         },
         {
-          key: "/home/users",
+          key: "/home/cars",
           label: "View Cars",
           icon: <PiListMagnifyingGlassThin />,
         },

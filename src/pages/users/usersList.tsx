@@ -68,7 +68,7 @@ const UsersList = () => {
         <Space>
           <EditOutlined
             style={{ fontSize: 18 }}
-            onClick={() => navigate(`/home/insurance-agent/${record._id}`)}
+            onClick={() => navigate(`/home/users/${record._id}`)}
           />
           <DeleteOutlined
             style={{ fontSize: 18, color: "red", marginLeft: "5px" }}

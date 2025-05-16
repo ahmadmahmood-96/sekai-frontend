@@ -32,7 +32,7 @@ const AddUsers = () => {
   }, [id]);
 
   const fetchUserData = async () => {
-    const { data } = await client.get(`/users/${id}`);
+    const { data } = await client.get(`/user/user/${id}`);
     return data;
   };
 
@@ -40,10 +40,8 @@ const AddUsers = () => {
     enabled: isEdit, // Only run query if editing
     onSuccess: (data) => {
       // Populate form fields with the fetched data
-      form.setFieldsValue({
-        ...data,
-      });
-      if (data?.message) message.success(data?.message);
+      const user = data.user;
+      form.setFieldsValue(user);
     },
     onError: () => {
       message.error("Failed to fetch user details.");

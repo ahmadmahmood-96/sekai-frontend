@@ -14,6 +14,8 @@ import AddInsuranceCompany from "../pages/insurance/companies/addCompany";
 import AddAgent from "../pages/insurance/agents/addAgent";
 import AgentsList from "../pages/insurance/agents/agentsList";
 import UsersList from "../pages/users/usersList";
+import AddCar from "../pages/cars/addCar";
+import CarsList from "../pages/cars/carsList";
 
 const HomeRoutes = () => {
   const user = getUserFromLocalStorage();
@@ -60,6 +62,26 @@ const HomeRoutes = () => {
             <Suspense fallback={<Spin className="app-loading-wrapper" />}>
               <ProtectedRoute allowedRoles={["admin"]}>
                 <AddUsers />
+              </ProtectedRoute>
+            </Suspense>
+          }
+        />
+        <Route
+          path="/cars"
+          element={
+            <Suspense fallback={<Spin className="app-loading-wrapper" />}>
+              <ProtectedRoute allowedRoles={["admin"]}>
+                <CarsList />
+              </ProtectedRoute>
+            </Suspense>
+          }
+        />
+        <Route
+          path="/cars/:id"
+          element={
+            <Suspense fallback={<Spin className="app-loading-wrapper" />}>
+              <ProtectedRoute allowedRoles={["admin"]}>
+                <AddCar />
               </ProtectedRoute>
             </Suspense>
           }

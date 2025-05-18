@@ -52,3 +52,29 @@ interface InsuranceAgent {
   };
   createdAt: string;
 }
+
+interface Car {
+  _id: string;
+  make: string;
+  model: string;
+  manufacturingYear: number;
+  engineCapacity: string;
+  chasisNo: string;
+  engineNo: string;
+  regNo: string;
+  gearType: "Auto" | "Manual" | "Column";
+  carType: "Petrol" | "Diesel" | "Electric";
+  createdAt: string;
+}
+
+interface CarFormValues {
+  make: string;
+  model: string;
+  manufacturingYear: number;
+  engineCapacity: string;
+  chasisNo: string;
+  engineNo: string;
+  regNo: string;
+  gearType: "Auto" | "Manual" | "Column";
+  carType: "Petrol" | "Diesel" | "Electric";
+}

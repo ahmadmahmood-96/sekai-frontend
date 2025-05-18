@@ -17,6 +17,7 @@ import { carMakes } from "../../constants/carMakes";
 import { carModelsByMake } from "../../constants/carModels";
 import { gearTypes } from "../../constants/gearTypes";
 import { carTypes } from "../../constants/carTypes";
+import dayjs from "dayjs";
 
 const AddCar = () => {
   const { id } = useParams<{ id: string }>();
@@ -36,9 +37,14 @@ const AddCar = () => {
     },
     {
       enabled: isEdit,
-      onSuccess: (data) => {
-        form.setFieldsValue(data.result); // Use the `result` field from the controller
+      onSuccess: (data: { result: CarFormValues }) => {
+        const car = data.result;
+        form.setFieldsValue({
+          ...car,
+          manufacturingYear: dayjs(`${car.manufacturingYear}`, "YYYY"),
+        });
       },
+
       onError: () => {
         message.error("Failed to fetch car details.");
       },
@@ -70,7 +76,11 @@ const AddCar = () => {
   );
 
   const onFinish = (values: CarFormValues) => {
-    submitCar(values);
+    const payload = {
+      ...values,
+      manufacturingYear: values.manufacturingYear.year(),
+    };
+    submitCar(payload);
   };
 
   return (

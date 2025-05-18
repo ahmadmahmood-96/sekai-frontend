@@ -70,7 +70,7 @@ interface Car {
 interface CarFormValues {
   make: string;
   model: string;
-  manufacturingYear: number;
+  manufacturingYear: Dayjs;
   engineCapacity: string;
   chasisNo: string;
   engineNo: string;

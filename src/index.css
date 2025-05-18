@@ -304,6 +304,14 @@ h1 {
   width: 120px;
 }
 
+.anticon-search {
+  color: white !important;
+}
+
+.ant-input-search-button {
+  padding: 0px 24px !important;
+}
+
 @media (max-width: 786px) {
   .header-logo {
     width: 120px;

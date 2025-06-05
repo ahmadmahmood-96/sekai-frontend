@@ -1,0 +1,44 @@
+/* Make the menu stick to the top with no margin */
+.custom-menu-wrapper {
+  margin: 0;
+  padding: 10;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  background-color: var(--primary-color); /* Ant Design default primary color */
+}
+
+/* Menu bar */
+.custom-menu {
+  background-color: transparent; /* already wrapped by blue */
+  border-bottom: none;
+}
+
+/* Selected tab style */
+.custom-menu .ant-menu-item-selected {
+  background-color: #ffffff !important;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  color: var(--primary-color) !important;
+  font-weight: 500;
+}
+
+/* Override padding/margin if needed */
+.custom-menu .ant-menu-item,
+.custom-menu .ant-menu-submenu-title {
+  color: #ffffff !important;
+  margin: 0;
+  padding: 0 16px;
+  line-height: 64px;
+}
+
+/* Optional: Adjust hover for better visibility */
+.custom-menu .ant-menu-item:hover,
+.custom-menu .ant-menu-submenu-title:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+}
+
+/* Ellipsis item styling (already handled by Ant Design) */
+.custom-menu .ant-menu-overflow-item-rest {
+  pointer-events: auto;
+}

@@ -294,6 +294,10 @@ h1 {
   display: none;
 }
 
+.row-pointer {
+  cursor: pointer;
+}
+
 .ant-otp.ant-otp-lg .ant-otp-input {
   height: 50px;
   margin: 0px 4px;

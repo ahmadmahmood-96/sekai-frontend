@@ -97,7 +97,7 @@ const HomeRoutes = () => {
           }
         />
         <Route
-          path="/companies/detail"
+          path="/companies/car-sales"
           element={
             <Suspense fallback={<Spin className="app-loading-wrapper" />}>
               <ProtectedRoute allowedRoles={["admin"]}>

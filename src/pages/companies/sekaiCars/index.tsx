@@ -1,8 +1,18 @@
 import { Col, Form, Input, Row } from "antd";
+import "../styles.less";
+import { HorizontalMenu, MenuList } from "../../../components/horizontalMenu";
 
 const CarDetails = () => {
+  const routes: MenuList[] = [
+    {
+      keyName: "",
+      pathName: "kiosk",
+      path: "/bakery-dish",
+    },
+  ];
   return (
     <>
+      <HorizontalMenu routes={routes} />
       <Form layout="vertical">
         <Row gutter={30}>
           <Col xs={24} sm={24} md={12} lg={8} xl={8} xxl={8}>

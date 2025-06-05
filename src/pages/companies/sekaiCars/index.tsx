@@ -5,9 +5,14 @@ import { HorizontalMenu, MenuList } from "../../../components/horizontalMenu";
 const CarDetails = () => {
   const routes: MenuList[] = [
     {
-      keyName: "",
-      pathName: "kiosk",
-      path: "/bakery-dish",
+      keyName: "car-sales", // should match path segment from URL
+      pathName: "Add Invoice",
+      path: "/home/companies/car-sales",
+    },
+    {
+      keyName: "view-invoices",
+      pathName: "View Invoices",
+      path: "/home/companies/view-invoices",
     },
   ];
   return (

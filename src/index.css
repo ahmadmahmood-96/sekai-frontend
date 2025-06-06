@@ -96,10 +96,6 @@ h1 {
   background-color: var(--primary-color);
 }
 
-.ant-row {
-  margin: 15px 0px;
-}
-
 .app-loading-wrapper.ant-spin-spinning {
   position: fixed;
   top: 0;

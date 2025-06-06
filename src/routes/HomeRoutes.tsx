@@ -8,7 +8,6 @@ import { Spin } from "antd";
 import { getUserFromLocalStorage } from "../utils/getUser";
 import AddUsers from "../pages/users/AddUsers";
 import CompaniesList from "../pages/companies";
-import CarDetails from "../pages/companies/sekaiCars";
 import InsuranceCompaniesList from "../pages/insurance/companies/companiesList";
 import AddInsuranceCompany from "../pages/insurance/companies/addCompany";
 import AddAgent from "../pages/insurance/agents/addAgent";
@@ -16,6 +15,8 @@ import AgentsList from "../pages/insurance/agents/agentsList";
 import UsersList from "../pages/users/usersList";
 import AddCar from "../pages/cars/addCar";
 import CarsList from "../pages/cars/carsList";
+import CarLayout from "../components/layout/carLayout";
+import AddCarInvoice from "../pages/companies/sekaiCars/addInvoice";
 
 const HomeRoutes = () => {
   const user = getUserFromLocalStorage();
@@ -97,15 +98,30 @@ const HomeRoutes = () => {
           }
         />
         <Route
-          path="/companies/car-sales"
+          path="/companies"
           element={
-            <Suspense fallback={<Spin className="app-loading-wrapper" />}>
-              <ProtectedRoute allowedRoles={["admin"]}>
-                <CarDetails />
-              </ProtectedRoute>
-            </Suspense>
+            <ProtectedRoute allowedRoles={["admin"]}>
+              <CarLayout />
+            </ProtectedRoute>
           }
-        />
+        >
+          <Route
+            path="car-sales"
+            element={
+              <Suspense fallback={<Spin className="app-loading-wrapper" />}>
+                <AddCarInvoice />
+              </Suspense>
+            }
+          />
+          <Route
+            path="view-invoices"
+            element={
+              <Suspense fallback={<Spin className="app-loading-wrapper" />}>
+                {/* <ViewInvoices /> */}
+              </Suspense>
+            }
+          />
+        </Route>
         <Route
           path="/insurance-company"
           element={

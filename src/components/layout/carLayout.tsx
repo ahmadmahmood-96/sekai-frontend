@@ -1,25 +1,27 @@
 // CarLayout.tsx
 import { Outlet } from "react-router-dom";
-import { HorizontalMenu, MenuList } from "../../../components/horizontalMenu";
+import { HorizontalMenu, MenuList } from "../horizontalMenu";
 
 const CarLayout = () => {
   const routes: MenuList[] = [
     {
       keyName: "car-sales",
       pathName: "Add Invoice",
-      path: "/companies/car-sales",
+      path: "/home/companies/car-sales",
     },
     {
       keyName: "view-invoices",
       pathName: "View Invoices",
-      path: "/companies/view-invoices",
+      path: "/home/companies/view-invoices",
     },
   ];
 
   return (
     <>
       <HorizontalMenu routes={routes} />
-      <Outlet />
+      <div className="car-layout-content">
+        <Outlet />
+      </div>
     </>
   );
 };
